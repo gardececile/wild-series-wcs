@@ -1,0 +1,30 @@
+$theme-colors: (
+        "primary": #00bcd4,
+        "secondary": #e0e0e0,
+);
+
+@import "~bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+//a écrire après : font-family: 'Abril Fatface', cursive;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap');
+//font-family: 'Josefin Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+/*font-family:'Open Sans', sans-serif;*/
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    h1 {
+    font-family:'Abril Fatface', cursive;
+    color :deepskyblue;
+    }
+}
+
+.navbar-light .navbar-brand{
+    color:white;
+
+}
+h1 {
+    font-family: 'Abril Fatface', cursive;
+}
+.button{
+    color:secondary;
+}
