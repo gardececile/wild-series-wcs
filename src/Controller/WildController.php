@@ -27,18 +27,20 @@ class WildController extends AbstractController
     /**
      * @Route("/show/{slug}",
      *     requirements={"slug"="[a-z0-9\-]+"},
-     *     defaults={"slug"="Aucune série sélectionnée, veuillez choisir une série"},
      *     name="show"
      * )
      */
     public function show ($slug): Response
     {
-        //remplacer tous les tirets du slug par des espaces
-        $adaptedSlug=str_replace('-',' ',$slug);
-            // puis passer la première lettre de chaque mot en MAJUSCULE
-        $UpAdaptedSlug=ucwords($adaptedSlug);
-        return $this->render('wild/show.html.twig',
-            ['slug'=>$UpAdaptedSlug]);
+        if (!$slug) {
+            $slug = "Aucune série sélectionnée, veuillez choisir une série";
+        }
+         //remplacer tous les tirets du slug par des espaces str_replace puis passer la première lettre de chaque mot en MAJUSCULE ucwords
+         $slug = ucwords(str_replace('-', ' ', $slug));
+
+         return $this->render('wild/show.html.twig',
+                ['slug' => $slug]
+         );
     }
 
 }
