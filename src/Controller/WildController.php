@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 //use Psr\Container\ContainerInterface;
+use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -53,7 +54,7 @@ class WildController extends AbstractController
             '/-/',
             ' ', ucwords(trim(strip_tags($slug)), "-")
         );
-        $program= $this->getDoctrine()
+        $program = $this->getDoctrine()
             ->getRepository(Program::class)
             ->findOneBy(['title'=> mb_strtolower($slug)]);
         if (!$program) {
@@ -66,6 +67,31 @@ class WildController extends AbstractController
              'program' => $program,
              'slug' => $slug,
          ]);
+    }
+
+    /**
+     * Getting a program to show by category depending of the findBy(our category name)
+     * @Route("/category/{categoryName}", name="show_category")
+     *
+     **/
+    public function showByCategory(string $categoryName): Response
+    {
+        if (!$categoryName) {
+            throw $this
+            ->createNotFoundException('No name of category found');
+        }
+
+        $category = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findOneBy(['name'=> $categoryName]);
+
+        $program = $this->getDoctrine()
+            ->getRepository(Program::class)
+            ->findBy(['category'=> $category], ['id' => 'DESC'] , 3);
+
+        return $this->render('wild/category.html.twig', [
+            'programs' => $program,
+    ]);
     }
 
 }
