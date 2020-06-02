@@ -5,7 +5,9 @@ namespace App\Controller;
 
 //use Psr\Container\ContainerInterface;
 use App\Entity\Category;
+use App\Entity\Episode;
 use App\Entity\Season;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -132,6 +134,43 @@ class WildController extends AbstractController
             'slug' => $slug,
             'seasons' =>$seasons,
         ]);
+    }
+
+    /**
+     * Getting a program to show all the progroms depending of the id of the program (id meaning the year of season: e.g. id=1 for season1)
+     * la méthode showBySeason() prend en compte en paramètre l'id de la saison (issu de l'url) et récupère la saison corresponsdante
+     *
+     * @param integer $id
+     * @Route("/program/season/{id}", name="show_season")
+     *
+     **/
+    public function showBySeason(int $id):Response
+    {
+        if (!$id) {
+            throw $this
+                ->createNotFoundException('No id has been sent to find the programs of the season.');
+        }
+
+        $season = $this->getDoctrine()
+            ->getRepository(Season::class)
+            ->find($id);
+
+        $program = $season->getProgram();
+
+        $episodes = $season->getEpisodes();
+
+        if (!$season) {
+            throw $this->createNotFoundException(
+                'No program with found in program\'s table.'
+            );
+        }
+
+        return $this->render('wild/season.html.twig', [
+            'season' => $season,
+            'program'=> $program,
+            'episodes' => $episodes,
+        ]);
+
     }
 
 }

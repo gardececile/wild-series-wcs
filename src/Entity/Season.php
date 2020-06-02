@@ -42,6 +42,7 @@ class Season
 
     /**
      * @ORM\OneToMany(targetEntity=Episode::class, mappedBy="season")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $episodes;
 

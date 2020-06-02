@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
 class Category
 {
@@ -42,7 +42,7 @@ class Category
     }
 
     /**
-     * param Program $program
+     * @param Program $program
      * @return Category
      */
     public function addProgram(Program $program): self
