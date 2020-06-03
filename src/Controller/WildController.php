@@ -41,35 +41,15 @@ class WildController extends AbstractController
     }
 
     /**
-     * Getting a program with a formatted slug for title
+     * Getting a program with the id of a program quest 10
      *
-     * @param string $slug The slugger
-     * @Route("/show/{slug<^[a-z0-9-]+$>}", defaults={"slug" =null}, name="show")
+     * @param int $id
+     * @Route("/show/{id}", name="show")
      *
      */
-    public function show (?string $slug): Response
+    public function show (program $program): Response
     {
-        if (!$slug) {
-            throw $this
-            ->createNotFoundException('No slug has been sent to find a program in program\'s table.');
-        }
-        $slug = preg_replace(
-            '/-/',
-            ' ', ucwords(trim(strip_tags($slug)), "-")
-        );
-        $program = $this->getDoctrine()
-            ->getRepository(Program::class)
-            ->findOneBy(['title'=> mb_strtolower($slug)]);
-        if (!$program) {
-            throw $this->createNotFoundException(
-                'No program with' .$slug.'title, found in program\'s table.'
-            );
-        }
-
-         return $this->render('wild/show.html.twig', [
-             'program' => $program,
-             'slug' => $slug,
-         ]);
+        return $this->render('wild/program.html.twig', ['program' => $program ]);
     }
 
     /**

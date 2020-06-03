@@ -1,18 +1,18 @@
 {% extends  'base.html.twig' %}
 
-{% block title %}Toutes les saisons de {{ slug }} {% endblock %}
+{% block title %}Toutes les saisons de {{ program.title }} {% endblock %}
 
 {% block body %}
-    <h1>Toutes les saisons de la série : {{ slug }}</h1>
-    {%  for season in seasons %}
-        <div>
-            <a href="{{ path('wild_show_season',{"id":season.id}) }}">Saison {{ season.number }} : {{ season.year }} </a>
-            <p> {{season.description}}</p>
-            <br>
-        </div>
-    {% else %}
-        Aucune série trouvée.
-    {% endfor %}
+    <h1>Toutes les saisons de la série : {{ program.title }}</h1>
+{#    {%  for program in seasons %}#}
+{#        <div>#}
+{#            <a href="{{ path('wild_show_season',{"id":season.id}) }}">Saison {{ season.number }} : {{ season.year }} </a>#}
+{#            <p> {{season.description}}</p>#}
+{#            <br>#}
+{#        </div>#}
+{#    {% else %}#}
+{#        Aucune série trouvée.#}
+{#    {% endfor %}#}
 
     <a href="{{ path('app_index') }}">
         Retour à l'accueil
