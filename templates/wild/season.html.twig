@@ -3,10 +3,11 @@
 {% block title %}Toutes les épisodes de la saison {{season.id}} {% endblock %}
 
 {% block body %}
-    <h1>Liste des épisodes : </h1>
+    <h1>Les épisodes de la saison {{ season.id}} de  {{ program.title }}</h1>
+    <p> {{season.description}}</p>
     {%  for episode in episodes %}
         <div>
-            <p>Episode {{ episode.number }} : {{ episode.title }}</p>
+            <a href={{ path('wild_show_episode',{'id': episode.id}) }}>Episode {{ episode.number }} : {{ episode.title }}</a>
         </div>
     {% else %}
         Aucune série trouvée.

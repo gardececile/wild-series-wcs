@@ -45,9 +45,8 @@ class WildController extends AbstractController
      *
      * @param int $id
      * @Route("/show/{id}", name="show")
-     *
      */
-    public function show (program $program): Response
+    public function show(program $program): Response
     {
         return $this->render('wild/program.html.twig', ['program' => $program ]);
     }
@@ -55,8 +54,7 @@ class WildController extends AbstractController
     /**
      * Getting a program to show by category depending of the findBy(our category name)
      * @Route("/category/{categoryName}", name="show_category")
-     *
-     **/
+     */
     public function showByCategory(string $categoryName): Response
     {
         if (!$categoryName) {
@@ -82,9 +80,8 @@ class WildController extends AbstractController
      * la méthode showByProgram() récupère un programme à partir d'un slug passé dans l'url
      *
      * @param string $slug The slugger
-     * @Route("/program/{slug<^[a-z0-9-]+$>}", defaults={"slug" =null}, name="show_program")
-     *
-     **/
+     * @Route("/program/{slug}", defaults={"slug" =null}, name="show_program")
+     */
     public function showByProgram(?string $slug): Response
     {
         if (!$slug) {
@@ -122,8 +119,7 @@ class WildController extends AbstractController
      *
      * @param integer $id
      * @Route("/program/season/{id}", name="show_season")
-     *
-     **/
+     */
     public function showBySeason(int $id):Response
     {
         if (!$id) {
@@ -152,5 +148,20 @@ class WildController extends AbstractController
         ]);
 
     }
+    /**
+     * @param integer $id
+     * @Route("/episode/{id}", name="show_episode")
+     */
+    public function showEpisode(episode $episode):response
+    {
+        $season =  $episode->getSeason();
+        $program = $season->getProgram();
+        return $this->render('wild/episode.html.twig', [
+            'episode'=> $episode,
+            'program'=> $program,
+            'season'=> $season,
+        ]);
+    }
+
 
 }
