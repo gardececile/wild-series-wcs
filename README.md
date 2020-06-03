@@ -1,10 +1,25 @@
 # wild-series-wcs
-création d'un application wild séries
+Création d'un application wild séries
 
-lien pour la vidéo de navigation pour la quete 09: navigation et code
-https://www.loom.com/share/cc66e58dda6843a899ef4734d726bd26
+LIENS VIDEOS : 
+quete 10
+vidéo de navigation
+https://www.loom.com/share/3ed9492b55904499ac71fe8a3522a914
 
-
-lien pour la vidéo de navigation pour la quete 09: que la navigation
+quete 09
+vidéo de navigation
 https://www.loom.com/share/4382f9c6832b4532966fffc15f3bc831
+
+RESUME DE LA CREATION DE L APPLI : WILD SERIES : 
+00 - Introduction à Symfony 4 
+01 - Wild Series la genèse
+02 - Initialisation du projet en Symfony 4
+03 - Création de la page d'accueil
+04 - Installation du module Webpack Encore
+05 - Le routing avancé
+06 - Créer ta première entité avec Doctrine
+07 - Relation "Many-to-One" avec Doctrine
+08 - Récupérer des données stockées avec Doctrine
+09 - Les relations bidirectionnelles avec Doctrine
+10 - Le param converter
 
