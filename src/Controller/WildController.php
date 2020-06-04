@@ -37,9 +37,6 @@ class WildController extends AbstractController
                 'No program found in program\'s table.'
             );
         }
-//        return $this->render('wild/index.html.twig',
-//            ['programs' => $programs]
-//            );
 
         $form = $this->createForm(
             ProgramSearchType::class,
