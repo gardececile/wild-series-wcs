@@ -7,8 +7,10 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Season;
+use App\Form\ProgramSearchType;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Program;
@@ -35,9 +37,20 @@ class WildController extends AbstractController
                 'No program found in program\'s table.'
             );
         }
-        return $this->render('wild/index.html.twig',
-            ['programs' => $programs]
-            );
+//        return $this->render('wild/index.html.twig',
+//            ['programs' => $programs]
+//            );
+
+        $form = $this->createForm(
+            ProgramSearchType::class,
+            null,
+            ['method'=> Request::METHOD_GET]
+        );
+        return $this->render('wild/index.html.twig',[
+            'programs' =>$programs,
+                'form' => $form->createView(),
+            ]
+        );
     }
 
     /**
