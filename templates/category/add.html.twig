@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category to create!{% endblock %}
+{% block title %}Create a new Category of Program{% endblock %}
 
 {% block body %}
 <style>
@@ -9,11 +9,10 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Les catégories existantes : </h1>
-    {%  for category in categories %}
-        <div>
-            <h2>{{ category.id }} - Catégorie : {{ category.name}}</h2>
-        </div>
-    {% endfor %}
+    <h2>Ajouter une nouvelle catégorie : </h2>
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    <button type="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
 </div>
 {% endblock %}

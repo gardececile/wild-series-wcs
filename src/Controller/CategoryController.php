@@ -2,44 +2,39 @@
 
 namespace App\Controller;
 
-use App\Form\CategoryType;
-use App\Form\ProgramSearchType;
+use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\CategoryType;
 
 /**
- * @Route("/wild", name="wild_")
+ * @Route("/category", name="category_")
  */
 
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/category", name="category")
+     * @Route("/", name="index")
      * @
      */
     public function index(Request $request) : Response
     {
+        $categories = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findAll();
 
-        $form= $this->createForm(
-            CategoryType::class,
-            $category);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted()) {
-            $data = $form->getData();
-        }
-
-        return $this->render('category/index.html.twig', [
-            'controller_name' => 'CategoryController',
+             return $this->render('category/index.html.twig', [
+            'categories' => $categories,
         ]);
     }
 
     /**
-     * @Route("/category", name="add")
+     * @Route("/add", name="add")
      */
-public function add() : Response
+public function add(Request $request) : Response
 {
     $category = new Category();
 
@@ -47,9 +42,17 @@ public function add() : Response
         CategoryType::class,
         $category);
 
-    return $this->render('category/index.html.twig',[
-        'form'=> $form->createView(),
-    ]
+    $form -> handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()){
+        $data = $form->getData();
+        $newcategory = $this->getDoctrine()->getManager();
+        $newcategory->persist($data);
+        $newcategory->flush();
+        return $this->redirectToRoute('category_index');
+    }
+    return $this->render('category/add.html.twig',[
+            'form'=> $form->createView(),
+        ]
     );
 }
 
