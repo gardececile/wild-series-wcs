@@ -2,6 +2,11 @@
 Création d'un application wild séries
 
 LIENS VIDEOS : 
+
+quete 11
+vidéo de navigation 
+https://www.loom.com/share/5a1ebd5e536948c8b966756ee535a420
+
 quete 10
 vidéo de navigation
 https://www.loom.com/share/3ed9492b55904499ac71fe8a3522a914
@@ -22,4 +27,5 @@ RESUME DE LA CREATION DE L APPLI : WILD SERIES :
 08 - Récupérer des données stockées avec Doctrine
 09 - Les relations bidirectionnelles avec Doctrine
 10 - Le param converter
+11 - Gardez la form - ajouter une catégorie de série
 
