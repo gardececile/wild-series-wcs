@@ -3,6 +3,11 @@ Création d'un application wild séries
 
 LIENS VIDEOS : 
 
+quete 13:
+validation title et summary 
+vidéo de navigation 
+https://www.loom.com/share/d27418edaf0c40aaaceb719c81487595
+
 quete 12 : 
 vidéo de navigation
 https://www.loom.com/share/13cb4dd281dc419ab3651b8fdc662ef3
@@ -33,4 +38,5 @@ RESUME DE LA CREATION DE L APPLI : WILD SERIES :
 10 - Le param converter
 11 - Gardez la form - ajouter une catégorie de série
 12 - Générer un CRUD - créer les CRUD pour Program / Episode / Season
+13 - Validation - title et summary 
 
