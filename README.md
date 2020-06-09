@@ -3,6 +3,11 @@ Création d'un application wild séries
 
 LIENS VIDEOS : 
 
+quete 14:
+Doctrine relations “Many-To-Many” actors et programs
+vidéo de navigation
+https://www.loom.com/share/e7fc59737733487c92f3245e11572cc5
+
 quete 13:
 validation title et summary 
 vidéo de navigation 
@@ -39,4 +44,5 @@ RESUME DE LA CREATION DE L APPLI : WILD SERIES :
 11 - Gardez la form - ajouter une catégorie de série
 12 - Générer un CRUD - créer les CRUD pour Program / Episode / Season
 13 - Validation - title et summary 
+14 - Doctrine relations “Many-To-Many” - actors programs
 
