@@ -12,35 +12,44 @@
                 <td>{{ program.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <td>{{ program.title }}</td>
             </tr>
             <tr>
-                <th>Summary</th>
+                <th>Résumé</th>
                 <td>{{ program.summary }}</td>
             </tr>
             <tr>
-                <th>Poster</th>
+                <th>Affiche</th>
                 <td>{{ program.poster }}</td>
             </tr>
             <tr>
-                <th>Country</th>
+                <th>Pays</th>
                 <td>{{ program.country }}</td>
             </tr>
             <tr>
-                <th>Year</th>
+                <th>Année</th>
                 <td>{{ program.year }}</td>
             </tr>
             <tr>
-                <th>Actor</th>
-                <td>{{ program.actors }}</td>
+                <td><strong>Acteurs:</strong>
+                    <td>
+                        <ul>
+                            {% for actor in program.actors %}
+                            <a href="{{ path('actor_show', {'id':actor.id}) }}"><li>{{ actor.name }} </li></a>
+                            {% else %}
+                                <li>Aucun acteur pour cette série</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('program_index') }}">back to list</a>
+    <a href="{{ path('program_index') }}">retour à la liste</a>
 
-    <a href="{{ path('program_edit', {'id': program.id}) }}">edit</a>
+    <a href="{{ path('program_edit', {'id': program.id}) }}">éditer</a>
 
     {{ include('program/_delete_form.html.twig') }}
 {% endblock %}

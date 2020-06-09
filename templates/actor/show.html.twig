@@ -15,12 +15,22 @@
                 <th>Name</th>
                 <td>{{ actor.name }}</td>
             </tr>
+            <tr>
+                <th>Program</th>
+                    <td>
+                        <ul>
+                            {% for program in actor.programs %}
+                                <a href="{{ path('program_show',{'id':program.id}) }}"><li>{{ program.title }}</li></a>
+                            {% endfor %}
+                        </ul>
+                    </td>
+            </tr>
         </tbody>
     </table>
 
     <a href="{{ path('actor_index') }}">back to list</a>
-
+<br>
     <a href="{{ path('actor_edit', {'id': actor.id}) }}">edit</a>
-
+<br>
     {{ include('actor/_delete_form.html.twig') }}
 {% endblock %}
