@@ -3,6 +3,11 @@ Création d'un application wild séries
 
 LIENS VIDEOS : 
 
+quete 15:
+EntityType actors programs
+vidéo de navigation
+https://www.loom.com/share/eef859e8996a4223abb755a585f4a5b7
+
 quete 14:
 Doctrine relations “Many-To-Many” actors et programs
 vidéo de navigation
@@ -45,4 +50,4 @@ RESUME DE LA CREATION DE L APPLI : WILD SERIES :
 12 - Générer un CRUD - créer les CRUD pour Program / Episode / Season
 13 - Validation - title et summary 
 14 - Doctrine relations “Many-To-Many” - actors programs
-
+15 - EntityType - actors programs  
