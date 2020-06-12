@@ -8,7 +8,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class ActorFixtures extends Fixture implements DependentFixtureInterface
+class ActorFixtures extends Fixture
 {
     Const ACTORS =[
         'Calley Fleming',
@@ -20,10 +20,10 @@ class ActorFixtures extends Fixture implements DependentFixtureInterface
         'Alycia Debnam-Carey',
     ];
 
-    public function getDependencies()
-    {
-        return [ProgramFixtures::class];
-    }
+//    public function getDependencies()
+//    {
+//        return [ProgramFixtures::class];
+//    }
 
     public function load(ObjectManager $manager)
     {
