@@ -57,7 +57,7 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
     ];
     public function getDependencies()
     {
-        return [CategoryFixtures::class,ActorFixtures::class];
+        return [CategoryFixtures::class];
     }
 
     public function load(ObjectManager $manager)
@@ -74,7 +74,6 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
             $this->addReference('program' . $i, $program);
             $i++;
             $program->setCategory($this->getReference('categorie_0'));
-            $program->addActor($this->getReference('acteur_' . $i%7));
         }
         $manager->flush();
     }
