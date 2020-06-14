@@ -8,13 +8,15 @@ class Slugify
 {
     public function generate(string $input):string
     {
-        $slug = preg_replace(
-            '/-/',
-            ' ', ucwords(trim(strip_tags($slug)), "-")
-        );
+        $input = preg_replace("/[^0-9a-zA-Z\:_|+-]/","",$input);
+        $input = preg_replace("/['-|+]+/","-",$input);
 
-        $output=str_replace(" ","-",$input);
-        return $output;
+        return $input;
+//        $newinput=explode("-",$input);
+//        ;
+//        $input=implode($newinput);
+//        $newinput = strtolower($newinput);
+//        return $newinput;
     }
 
 }
