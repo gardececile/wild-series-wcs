@@ -4,7 +4,7 @@
 <h1>Bienvenue les Amigos sur le site des séries DINGOS</h1>
     <h3>Les Séries</h3>
     {% for program in programs %}
-        <a href="{{ path('program_show', {'id': program.id}) }}">{{ program.title }}</a>
+        <a href="{{ path('program_show', {'slug': program.slug}) }}">{{ program.title }}</a>
         <br>
     {% else %}
         <tr>

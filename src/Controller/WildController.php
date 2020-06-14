@@ -54,7 +54,7 @@ class WildController extends AbstractController
      * Getting a program with the id of a program quest 10
      *
      * @param int $id
-     * @Route("/show/{id}", name="show")
+     * @Route("/show/{slug}", name="show")
      */
     public function show(program $program): Response
     {
@@ -128,6 +128,7 @@ class WildController extends AbstractController
      * la méthode showBySeason() prend en compte en paramètre l'id de la saison (issu de l'url) et récupère la saison corresponsdante
      *
      * @param integer $id
+     * @return Response
      * @Route("/program/season/{id}", name="show_season")
      */
     public function showBySeason(int $id):Response
@@ -158,9 +159,11 @@ class WildController extends AbstractController
         ]);
 
     }
+
     /**
-     * @param integer $id
-     * @Route("/episode/{id}", name="show_episode")
+     * @param Episode $episode
+     * @return Response
+     * @Route("/episode/{slug}", name="show_episode")
      */
     public function showEpisode(episode $episode):response
     {
