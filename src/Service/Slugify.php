@@ -8,8 +8,13 @@ class Slugify
 {
     public function generate(string $input):string
     {
-        preg_match()
-        return
+        $slug = preg_replace(
+            '/-/',
+            ' ', ucwords(trim(strip_tags($slug)), "-")
+        );
+
+        $output=str_replace(" ","-",$input);
+        return $output;
     }
 
 }
