@@ -3,6 +3,10 @@ Création d'un application wild séries
 
 LIENS VIDEOS : 
 
+quete 17 : 
+vidéo de navigation
+https://www.loom.com/share/db65f8d3d4c94374b4bffedbe8c4c21d
+
 quete 16 : 
 Les fixtures
 vidéo depuis le terminal de travail et navigation 
@@ -57,3 +61,4 @@ RESUME DE LA CREATION DE L APPLI : WILD SERIES :
 14 - Doctrine relations “Many-To-Many” - actors programs
 15 - EntityType - actors programs
 16 - Les fixtures - on a peuplé notre BDD de fake informations
+17 - service slugify - slug à la place des id
